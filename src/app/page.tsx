@@ -26,12 +26,20 @@ const products: Product[] = [
     description: "Descrição do produto 3",
     brand: "Marca 3",
   },
+  {
+    id: "4",
+    title: "Produto 4",
+    price: 400,
+    image: "/assets/product-04.jpg",
+    description: "Descrição do produto 4",
+    brand: "Marca 4",
+  },
 ];
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {products.map((product) => (
           <CardProduct key={product.id} {...product} />
         ))}
