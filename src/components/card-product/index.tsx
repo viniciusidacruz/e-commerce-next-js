@@ -1,13 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Plus } from "lucide-react";
+import { useShallow } from "zustand/react/shallow";
 
+import { useStore } from "@/store";
 import { ButtonIcon } from "../button-icon";
 import { formatCurrency } from "@/helpers/utils";
 
 import { CardProductProps } from "./types";
 
 export function CardProduct(props: CardProductProps) {
+  const { addItem } = useStore(
+    useShallow((state) => ({ addItem: state.addItem }))
+  );
+
   return (
     <div className="bg-white rounded-md p-4 sm:w-[275px]">
       <div className="w-full h-40 relative mb-4">
@@ -23,6 +31,15 @@ export function CardProduct(props: CardProductProps) {
         <ButtonIcon
           type="button"
           className="hover:scale-125 transition-all duration-300"
+          onClick={() =>
+            addItem({
+              id: props.id,
+              name: props.title,
+              price: props.price,
+              image: props.image,
+              quantity: 1,
+            })
+          }
         >
           <Plus className="w-4 h-4" />
         </ButtonIcon>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-import { Stepper } from "@/components";
-import { Summary } from "@/components/summary";
+import { Stepper, Summary } from "@/components";
 
 export const metadata: Metadata = {
   title: "Checkout | E-commerce NEXT JS",
